@@ -51,25 +51,14 @@ def cadastro_tutores():
         print(telefone_cadastro)
         print(endereco_cadastro)
 
-        
-        cur = mysql.connection.cursor()
-        cur.execute("SELECT Nome FROM tbl_tutor WHERE Nome = %s", (nome_cadastro,))
-        #EXIJO ESPLICACOES DO PQ PRECISA DE UMA VIRGULA NO FINAL DESSA MERDA
-        resultado = cur.fetchone()
-        print(resultado)
-            
-        if resultado:
-            msg = "Nome ja cadastrado no banco de dados"
-            return render_template('form.html', mensagem = msg)
-        else:
-            conn = mysql.connection()
-            cursor = conn.cursor()
-            cursor.execute("INSERT INTO tbl_cadastro (Nome,Telefone,Endereco) VALUES (%s, %s, %s)", ( nome_cadastro,telefone_cadastro,endereco_cadastro ))
-            #Alt  + Z para quebra linhas grandes
-            conn.commit()
-            msg = "Cadastrado com sucesso"
+        conn = mysql.connection()
+        cursor = conn.cursor()
+        cursor.execute("INSERT INTO tbl_cadastro (Nome,Telefone,Endereco) VALUES (%s, %s, %s)", ( nome_cadastro,telefone_cadastro,endereco_cadastro ))
+        #Alt  + Z para quebra linhas grandes
+        conn.commit()
+        msg = "Cadastrado com sucesso"
 
-            return render_template('form.html', mensagem = msg)
+        return render_template('form.html', mensagem = msg)
         
     except Exception as e:
         return json.dumps({'error': str(e)})
@@ -77,7 +66,7 @@ def cadastro_tutores():
 @app.route('/lista',methods=['GET']) 
 def listar():
     try:
-        conn = mysql.connection
+        conn = mysql.connection()
         cursor = conn.cursor()
         cursor.execute('SELECT * FROM tbl_cadastro')
         lista = cursor.fetchall()
