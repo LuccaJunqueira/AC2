@@ -51,7 +51,7 @@ def cadastro_tutores():
         print(telefone_cadastro)
         print(endereco_cadastro)
 
-        conn = mysql.connection()
+        conn = mysql.connect()
         cursor = conn.cursor()
         cursor.execute("INSERT INTO tbl_cadastro (Nome,Telefone,Endereco) VALUES (%s, %s, %s)", ( nome_cadastro,telefone_cadastro,endereco_cadastro ))
         #Alt  + Z para quebra linhas grandes
@@ -66,7 +66,7 @@ def cadastro_tutores():
 @app.route('/lista',methods=['GET']) 
 def listar():
     try:
-        conn = mysql.connection()
+        conn = mysql.connect()
         cursor = conn.cursor()
         cursor.execute('SELECT * FROM tbl_cadastro')
         lista = cursor.fetchall()
