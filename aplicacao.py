@@ -32,7 +32,7 @@ mysql.init_app(app)
 
 @app.route('/')
 def main():
-    return render_template('form.html')
+    return render_template('index.html')
 
 @app.route('/cadastrar')
 def cadastrar_tutores():
@@ -69,7 +69,7 @@ def cadastro_tutores():
             conn.commit()
             msg = "Cadastrado com sucesso"
 
-            return render_template('listar.html', mensagem = msg)
+            return render_template('form.html', mensagem = msg)
         
     except Exception as e:
         return json.dumps({'error': str(e)})
