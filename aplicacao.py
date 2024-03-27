@@ -62,7 +62,7 @@ def cadastro_tutores():
             msg = "Nome ja cadastrado no banco de dados"
             return render_template('form.html', mensagem = msg)
         else:
-            conn = mysql.connection
+            conn = mysql.connection()
             cursor = conn.cursor()
             cursor.execute("INSERT INTO tbl_cadastro (Nome,Telefone,Endereco) VALUES (%s, %s, %s)", ( nome_cadastro,telefone_cadastro,endereco_cadastro ))
             #Alt  + Z para quebra linhas grandes
