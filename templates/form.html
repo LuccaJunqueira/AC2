@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+</head>
+<body>
+    <header>
+        <h1>Sistema AC1</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="http://localhost:5000/">Inicio</a></li>
+            <li><a href="http://localhost:5000/cadastrar">Cadastro</a></li>
+            <li><a href="http://localhost:5000/lista">Lista</a></li>
+        </ul>
+    </nav>
+        
+    <div class="container">
+        <form action="/cadastro" method="post">
+            <fieldset>
+            <!--Campo usado agrupar dados relacionados em um formulário--> 
+                <legend>Cadastro</legend>  
+            <!--Define uma legenda para o elemento <fieldset> -->
+                <label for="inputNome">Nome:</label><br>
+                <input type="text" name="inputNome" id="inputNome" class="form-control" placeholder="Digite o nome" required autofocus><br>
+                <label for="inputTelefone" class="sr-only">Telefone: </label><br>    
+                <input type="text" name="inputTelefone" id="inputTelefone" class="form-control" placeholder="Digite o telefone" required ><br>
+                <label for="inputEndereco">Endereco:</label><br>
+                <input type="text" name="inputEndereco" id="inputEndereco" class="form-control" placeholder="Digite o endereco" required ><br>
+                <button id="cadastrar" type="submit">Cadastrar</button>            
+            </fieldset>
+        </form>
+    </div>
+    
+    <div>
+    <p class="mensagem">{{mensagem}}</p>
+    </div>
+    <footer>
+        <p>©Copyright 2024 by Lucca Junqueira. All rights reserved</p>
+    </footer>
+</body>
+</html>

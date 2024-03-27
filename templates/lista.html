@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Sistema AC1</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="http://localhost:5000/">Inicio</a></li>
+            <li><a href="http://localhost:5000/cadastrar">Cadastro</a></li>
+            <li><a href="http://localhost:5000/lista">Lista</a></li>
+        </ul>
+    </nav>
+        
+    <div class="container">
+        <table>
+            <tr>
+                <td>Nome</td><td>Telefone</td><td>Endereco</td>
+            </tr>
+                
+            {% for item in Lista %}
+            <tr>
+                <th>{{item[0]}}</th>
+                <th>{{item[1]}}</th>
+                <th>{{item[2]}}</th>
+            </tr>
+            {% endfor %}
+        </table>
+        <p class="mensagem" id="demo"></p>
+    </div>
+    <footer>
+        <p>©Copyright 2024 by Lucca Junqueira. All rights reserved</p>
+    </footer>
+    
+</body>
+</html>
+        

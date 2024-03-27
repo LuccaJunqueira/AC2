@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+ web:
+  build: .
+  working_dir: /data
+  command: python aplicacao.py
+  links:
+    - db
+  volumes:
+    - .:/data
+  ports:
+    - "5000:5000"
+
+ db:
+  image: mysql:5.7
+  environment:
+      MYSQL_ROOT_PASSWORD: Impacta2024
+  ports:
+    - "3309:3309"
